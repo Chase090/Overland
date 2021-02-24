@@ -8,4 +8,10 @@ class ApplicationController < ActionController::Base
     def logged_in?
         !!current_user
     end
+
+    def login_required
+        unless logged_in?
+            redirect_to login_path
+        end
+    end
 end

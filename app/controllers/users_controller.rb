@@ -1,6 +1,5 @@
 class UsersController < ApplicationController
     before_action :set_user, only: [:edit, :update, :show]
-    before_action :logged_in?, only: [:edit, :update, :show]
     
 
     def new
@@ -23,11 +22,13 @@ class UsersController < ApplicationController
     end
 
     def edit
+        # binding.pry
 
     end
 
     def update
-
+        @user.update(user_params)
+        redirect_to user_path(@user)
     end
 
 

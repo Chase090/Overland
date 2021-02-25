@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  resources :rigs
   get '/auth/:palceholder/callback', to: 'sessions#omniauth'
 
   # sessions

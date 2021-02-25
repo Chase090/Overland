@@ -1,2 +1,0 @@
-class Rig < ApplicationRecord
-end

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :locations
+  resources :posts
   get '/auth/:palceholder/callback', to: 'sessions#omniauth'
 
   # sessions
@@ -6,13 +8,7 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
   # users
-  # get '/signup' => 'users#new'
-  # post '/signup' => 'users#create'
-  # get '/profile/:id/edit' => 'users#edit', as: 'uedit'
-  # patch '/edit/:id' => 'users#update'
-  # get '/profile/:id' => 'users#show', as: 'profile'
+  resources :users, except: :index, path_names: { new: '/signup', show: '/profile', edit: 'uedit'} 
+  root 'users#home'
 
-
-resources :users, except: :index, path_names: { new: '/signup', show: '/profile', edit: 'uedit'} 
-  
 end

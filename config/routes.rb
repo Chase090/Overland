@@ -1,14 +1,18 @@
 Rails.application.routes.draw do
-  resources :locations
+
   resources :posts
+  resources :rigs
   get '/auth/:palceholder/callback', to: 'sessions#omniauth'
 
-  # sessions
+# sessions
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   delete '/logout' => 'sessions#destroy'
-  # users
+# users
   resources :users, except: :index, path_names: { new: '/signup', show: '/profile', edit: 'uedit'} 
-  root 'users#home'
+# location
+  resources :locations
+
+
 
 end

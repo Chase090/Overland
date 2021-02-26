@@ -23,6 +23,7 @@ gem 'jbuilder', '~> 2.7'
  gem 'bcrypt', '~> 3.1.7'
  gem 'pry'
 
+
 # For Omniauth gems
 gem 'dotenv-rails'
 gem 'omniauth'

@@ -1,7 +1,8 @@
 <h1>Some cheese</h1>
 
+<%= render partial: 'errors', locals: { object: @user }%>
 
-<%= form_with(model: @user, url:'/login', local: true) do |f| %>
+<%= form_with(url: '/login', local: true) do |f| %>
     <%= f.label :email %>
     <%= f.text_field :email %>
     <br><br>
@@ -11,4 +12,7 @@
     <%= f.submit "Sign In" %>
 <% end %>
 
+
+
+<p><%= link_to "Sign Up", signup_path(@user) %></p>
 <%= button_to "Sign In with Google", '/auth/google_oauth2' %>

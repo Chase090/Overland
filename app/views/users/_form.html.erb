@@ -1,11 +1,9 @@
-<%= render partial: 'sessions/errors', locals: { object: @user }%>
 
-<h1> Ok user edit here </h1>
 
-<%= form_with(model: @user, url: user_edit_path, local: true) do |f|%>
+<%= form_for object) do |f|%>
 
 <%= f.label "Profile Photo" %>
-<%= f.file_field :avatar %>
+<%= f.text_field :avatar %>
 <br><br>
 
 <%= f.label :first_name %>
@@ -25,6 +23,7 @@
 <br><br>
 
 <%= f.submit "Go ahead" %>
+
 
 
 

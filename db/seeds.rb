@@ -18,8 +18,3 @@ janice = User.create(first_name: "Janice", last_name: "Cabbage", email: "sofa@ho
 
 # Location 
 
-banff = (name: "Banff", latitude: 51.148951181175335, longitude: -115.49452009610545)
-
-(make: "ford", model: "F150", year_model: 1999)
-
-

@@ -42,7 +42,7 @@ class RigsController < ApplicationController
 private
 
     def rig_params
-        params.require(:rig).permit(:make, :model, :year_model)
+        params.require(:rig).permit(:make, :model, :year_model, ,:upgrade :avatar)
     end
 
     def set_rig

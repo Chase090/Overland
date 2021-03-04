@@ -1,15 +1,20 @@
 <h1>this should show</h1>
 
  <p><%= link_to "Log out", logout_path, method: "delete" %></p>
-   <p><%= link_to "Edit", edit_user_path(@user) %></p>
+   <p><%= link_to "Edit", user_edit_path(@user) %></p>
   <b>Name: </b><%= @user.full_name%> <br>
+
+  <%if @user.avatar.attached?%>
+    
+    <%=image_tag @user.avatar, height: 100, width: 100, class: "rounded-circle" %>
+  <%end%>
 
 
 
 <p><%= link_to "new rig", new_rig_path%></p>
 
 <h2>current rig:</h2>
-<li><%=link_to @rig.model, rig_path(@rig.id)%></li>
+<li><%=link_to @rig.model, rig_path%></li>
 
   
 

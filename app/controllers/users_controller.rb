@@ -12,7 +12,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
-          redirect_to user_path(@user.id)
+          redirect_to profile_path(@user.id)
         else
           render :new
         end
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
     def show 
         @user = User.find_by_id(session[:user_id])
-        @rig = @user.rig
+         @rig = @user.rigs
     
 
         # binding.pry
@@ -32,13 +32,13 @@ class UsersController < ApplicationController
 
     def update
         @user.update(user_params)
-        redirect_to user_path(@user)
+        redirect_to profile_path(@user)
     end
 
 
     private
     def user_params
-        params.require(:user).permit(:email, :password, :first_name, :last_name)
+        params.require(:user).permit(:email, :password, :first_name, :last_name, :avatar)
     end
 
     def set_user

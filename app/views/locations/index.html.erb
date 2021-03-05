@@ -1,0 +1,6 @@
+  <% @locations.each do |l| %></td>
+
+<tr>
+<td><%= link_to l.name, location_path(l.id)%></td>              
+</tr>
+<% end %>

@@ -8,5 +8,8 @@
     <%= f.label :year_model %>
     <%= f.text_field :year_model %>
     <br><br>
+     <%= f.label :active %>
+ <%= f.check_box :active, {}, true, false %> <br />
+
     <%= f.submit "Create" %>
 <% end %>

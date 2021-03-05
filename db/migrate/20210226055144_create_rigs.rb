@@ -5,7 +5,7 @@ class CreateRigs < ActiveRecord::Migration[6.1]
       t.string :model
       t.integer :year_model
       t.integer :user_id
-      t.boolean :curret_rig, default: false
+      t.boolean :active, default: false
       t.timestamps
     end
   end

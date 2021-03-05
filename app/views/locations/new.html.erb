@@ -1,23 +1,7 @@
 <h1>this where your location is</h1>
 
-<li>
-
-<%= form_for(@location) do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name %>
-    <br><br>
-    <%= f.label :longtitude %>
-    <%= f.text_field :longtitude %>
-    <br><br>
-    <%= f.label :latitude %>
-    <%= f.text_field :latitude %>
-    <br><br>
-    <%= f.submit "commit" %>
-<% end %>
+<%= render partial: 'sessions/errors', locals: { object: @location }%>
+<%= render partial: 'form', locals: { object: @location }%>
 
 
 
-
-
-
-</li>

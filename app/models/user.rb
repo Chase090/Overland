@@ -1,8 +1,8 @@
 class User < ApplicationRecord
     has_secure_password
-    has_many :rigs
-    has_many :locations, through: :posts
-    has_many :posts
+    has_one :rig
+    has_many :travels, dependent: :destroy
+    has_many :locations, through: :travels
     has_one_attached :avatar
 
     validates :first_name, :last_name, :email, presence: true

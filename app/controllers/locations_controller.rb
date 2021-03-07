@@ -1,9 +1,8 @@
 class LocationsController < ApplicationController
 
-    before_action :set_user, only: [:edit, :update, :show]
+    # before_action :set_location, only: [:edit, :update, :show]
     
     def index
-        binding.pry
         @locations = Location.all
     end
 
@@ -13,7 +12,7 @@ class LocationsController < ApplicationController
 
     def create
         #  raise params.inspect
-         @location = current_user.locations.build(location_params)
+         @location = Location.new(location_params)
     
          if @location.save
            
@@ -23,10 +22,11 @@ class LocationsController < ApplicationController
          end
     end
 
-    # def show  
-    #     binding.pry
-    #     @location = current_user.locations.find_by(id: params[:id])          
-    # end
+    def show  
+        @location = Location.find_by(id: params[:id])
+
+      binding.pry  
+    end
 
     def edit
 
@@ -40,11 +40,11 @@ class LocationsController < ApplicationController
 
     private
     def location_params
-        params.require(:location).permit(:longitude, :latitude, :name, :state, :distance, :url, :season)
+        params.require(:location).permit(:name, :longitude, :latitude, :state, :url )
     end
 
     # def set_location
-    #     @location = Location.find_by_id(session[:user_id])
+    #     @location = Location.find_by_id(id: params[:id])
     # end
 
 

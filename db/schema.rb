@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_25_093048) do
+ActiveRecord::Schema.define(version: 2021_03_05_074812) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -44,11 +44,28 @@ ActiveRecord::Schema.define(version: 2021_02_25_093048) do
     t.string "name"
     t.decimal "longitude"
     t.decimal "latitude"
-    t.integer "user_id"
     t.string "state"
-    t.integer "distance"
     t.string "url"
-    t.string "season"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "rigs", force: :cascade do |t|
+    t.string "name"
+    t.string "make"
+    t.string "model"
+    t.integer "year_model"
+    t.integer "user_id"
+    t.boolean "active", default: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "travels", force: :cascade do |t|
+    t.integer "user_id"
+    t.integer "location_id"
+    t.integer "distance"
+    t.string "description"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

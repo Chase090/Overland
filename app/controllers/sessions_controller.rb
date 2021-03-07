@@ -4,10 +4,12 @@ class SessionsController < ApplicationController
     end
     
     def create
-        user = User.find_by(email: params[:email])
-        if user && user.authenticate(params[:password])
-            session[:user_id] = user.id
-            redirect_to profile_path(user.id)
+        
+        @user = User.find_by(email: params[:email])
+        if @user && @user.authenticate(params[:password])
+            session[:user_id] = @user.id
+            redirect_to profile_path(@user.id)
+            # binding.pry
         else
           flash[:message] = "Email and/or password invalid. Please try again."
           redirect_to login_path

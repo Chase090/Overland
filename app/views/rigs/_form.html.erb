@@ -6,7 +6,7 @@
     <%= f.text_field :model %>
     <br><br>
     <%= f.label :year_model %>
-    <%= f.text_field :year_model %>
+    <%= f.number_field :year_model, min: 0, step: 1950 %>
     <br><br>
      <%= f.label :active %>
  <%= f.check_box :active, {}, true, false %> <br />

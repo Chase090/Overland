@@ -4,6 +4,7 @@ class CreateTravels < ActiveRecord::Migration[6.1]
       t.integer :user_id
       t.integer :location_id
       t.integer :distance
+      t.string :description
       t.timestamps
     end
   end

@@ -1,0 +1,11 @@
+<% @travels.all.each do |travel| %>
+
+<tr>
+<td><%= link_to travel.location.name, travel_path(travel.id)%></td>                    
+<td><%= travel.location.name%></td>                    
+<td><%= travel.location.name%></td>                    
+<td><%= travel.location.name%></td>                    
+</tr>
+                        <% end %>
+
+                        show if none

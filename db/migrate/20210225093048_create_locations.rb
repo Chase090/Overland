@@ -6,7 +6,6 @@ class CreateLocations < ActiveRecord::Migration[6.1]
       t.decimal :latitude
       t.string :state
       t.string :url
-      t.string :season
       t.timestamps
     end
   end

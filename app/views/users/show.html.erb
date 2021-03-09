@@ -8,7 +8,10 @@
     
     <%=image_tag @user.avatar, height: 100, width: 100, class: "rounded-circle" %>
   <%end%>
-
+  <br><br>
+ <%if @rig.rig_avatar.attached?%>
+    <%=image_tag @rig.rig_avatar, height: 90, width: 90, class: "rounded-circle" %>
+  <%end%>
 
 
 <p><%= link_to "new rig", new_rig_path%></p>
@@ -17,7 +20,6 @@
 <p><%= link_to "New Travels", new_travel_path%></p>
 <p><%= link_to "My Travels", travels_path%></p>
 
-<h2>current rig:</h2>
 
 
   
@@ -26,7 +28,3 @@
 
 
 
-
-  <p> so you want to show persons current rig and potentially photo of the rig</p>
-  <p> so you want to show persons current recent posts</p>
-  <p> that is with the option of publicly posting it or just friends</p>

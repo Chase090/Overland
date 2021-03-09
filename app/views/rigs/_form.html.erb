@@ -1,4 +1,10 @@
 <%= form_for rig do |f| %>
+    <%= f.label "Profile Photo" %>
+    <%= f.file_field :rig_avatar %>
+    <br><br>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+    <br><br>
     <%= f.label :make %>
     <%= f.text_field :make %>
     <br><br>
@@ -6,7 +12,7 @@
     <%= f.text_field :model %>
     <br><br>
     <%= f.label :year_model %>
-    <%= f.number_field :year_model, min: 0, step: 1950 %>
+    <%= f.number_field :year_model %>
     <br><br>
      <%= f.label :active %>
  <%= f.check_box :active, {}, true, false %> <br />

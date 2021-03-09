@@ -12,7 +12,7 @@ class RigsController < ApplicationController
     end
 
     def  create 
-        @rig = current_user.rigs.build(rig_params)
+        @rig = current_user.build_rig(rig_params)
         if @rig.save
             redirect_to rig_path(@rig)
         else
@@ -42,7 +42,7 @@ class RigsController < ApplicationController
 private
 
     def rig_params
-        params.require(:rig).permit(:make, :model, :year_model, :active)
+        params.require(:rig).permit(:name, :make, :model, :year_model, :active, :rig_avatar)
     end
 
     def set_rig

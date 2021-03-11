@@ -1,8 +1,11 @@
 <h1>sign up here</h1>
 <%= render partial: 'sessions/errors', locals: { object: @user }%>
+<%= render partial: 'form', locals: { object: @user, something: signup_path }%>
 <%= form_with(model: @user, url: signup_path, local: true) do |f| %>
-    <%= f.label "Profile Photo" %>
-    <%= f.file_field :avatar %>
+<div class="mb-3">
+    <%= f.label "Profile Photo", class: "form-label" %>
+    <%= f.file_field :avatar, class: "form-control form-control-sm"%>
+    </div>
     <br><br>
     <%= f.label :last_name %>
     <%= f.text_field :last_name %>

@@ -3,12 +3,16 @@ class User < ApplicationRecord
     has_one :rig
     has_many :travels, dependent: :destroy
     has_many :locations, through: :travels
-    has_one_attached :avatar
+    accepts_nested_attributes_for :rig
 
     validates :first_name, :last_name, :email, presence: true
     validates :email, uniqueness: true
 
     def full_name
         self.first_name + " " + self.last_name
+    end
+
+    def travel_count
+        self.travels.count
     end
 end

@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
 
     def new
+        flash[:message] = "Welcome!!"
         @user = User.new
     end
 
@@ -19,12 +20,10 @@ class UsersController < ApplicationController
     end
 
     def show 
+       
          @user = User.find_by_id(session[:user_id])
          @rig = @user.rig
-        #  @rig = @user.rigs
-    
-
-        # binding.pry
+   
     end
 
     def edit
@@ -39,7 +38,7 @@ class UsersController < ApplicationController
 
     private
     def user_params
-        params.require(:user).permit(:email, :password, :first_name, :last_name, :avatar)
+        params.require(:user).permit(:email, :password, :first_name, :last_name, :avatar, rig_attributes: [:name, :make, :model, :year_model])
     end
 
     def set_user

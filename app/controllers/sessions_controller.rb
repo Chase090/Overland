@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
-            redirect_to profile_path(@user.id)
+            redirect_to travels_path(@user.id)
             # binding.pry
         else
           flash[:message] = "Email and/or password invalid. Please try again."
@@ -28,7 +28,7 @@ class SessionsController < ApplicationController
         if user.valid?
             # raise "something wrong with validity".inspect
             session[:user_id] = user.id
-            redirect_to user_path(user)
+            redirect_to profile_path(user)
         else
             # raise "something wrong with creating the session".inspect
             flash[:message] = user.errors.full_messages.join("")

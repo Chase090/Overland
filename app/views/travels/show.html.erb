@@ -1,3 +1,5 @@
+<%= render partial: 'sessions/errors', locals: { object: @travel }%>
+<p><%= link_to "New Travels", new_travel_path%></p>
 <p> this would show your travels</p>
 <%= @travel.created_at.strftime("Created at: %A, %b %e, at %l:%M %p") %>
 <%= @travel.distance %>
@@ -6,3 +8,4 @@
 <%= @travel.location.state %>
 <%= @travel.location.longitude %>
 <%= @travel.location.latitude %>
+<%= link_to "edit", edit_travel_path(@travel) %>

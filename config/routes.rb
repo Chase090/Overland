@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :travels
   get '/auth/:palceholder/callback', to: 'sessions#omniauth'
   
 # sessions
@@ -21,6 +20,8 @@ Rails.application.routes.draw do
 # location
   resources :locations
 
+# travels
+  resources :travels
 
 
 end

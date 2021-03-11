@@ -1,15 +1,23 @@
-<div class="container">
 <% if flash[:message] %>
-  <div class="field_with_errors"><%= flash[:message] %></div>
-<% end %>
-
-<% if object.errors.any? %>
-  <div id="error_explanation">
-    <ul>
-      <% object.errors.full_messages.each do |message| %>
-        <li><h5><%= message %>.</h5></li>
-      <% end %>
-    </ul>
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>
+      <div class="field_with_errors"><%= flash[:message] %></div>
+    </strong>
+  <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
   </div>
 <% end %>
-</div>
+
+ <% if object.errors.any? %>
+  <div class="alert alert-danger" role="alert">
+    <ul>
+          <% object.errors.full_messages.each do |message| %>
+            <li><h5><%= message %>.</h5></li>
+          <% end %>
+        </ul>
+  </div>  
+<% end %>
+   
+     
+
+
+

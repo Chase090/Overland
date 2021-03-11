@@ -1,33 +1,4 @@
-
 <%= render partial: 'sessions/errors', locals: { object: @travel }%>
+<%= render partial: 'form', locals: { travel: @travel }%>
 
 
-<%=form_for(@travel) do |f|%>
-<%=f.label :distance %>
-<%=f.number_field :distance, min: 0, step: 0.01 %>
-
-    <%=f.fields_for :location do |l|%>
-        <%= l.label :name %>
-        <%= l.text_field :name %>
-        <br><br>
-        <%= l.label :longitude %>
-        <%= l.text_field :longitude %>
-        <br><br>
-        <%= l.label :latitude %>
-        <%= l.text_field :latitude %>
-        <br><br>
-        <%= l.label :state %>
-        <%= l.text_field :state %>
-        <br><br>
-        <%= l.label :url %>
-        <%= l.text_field :url %>
-        <br><br>
-        <br><br>
-        <%end%>
-<%= f.label :description %>
-<%= f.text_field :description %>
-<%= f.submit "submit" %>
-
-
-
-<%end%>

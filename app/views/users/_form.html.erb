@@ -1,9 +1,12 @@
 
+<h2>Your Profile</h2>
+<br><br>
+<br><br>
+<%= form_with(model: object, url: something, local: true) do |f|%>
 
-<%= form_for object do |f|%>
-
-<%= f.label "Profile Photo" %>
-<%= f.text_field :avatar %>
+  <%= f.label "Profile Photo", class: "form-label" %>
+    <%= f.file_field :avatar, class: "form-control form-control-sm"%>
+    
 <br><br>
 
 <%= f.label :first_name %>
@@ -21,8 +24,28 @@
 <%= f.label :password %>
 <%= f.password_field :password %>
 <br><br>
+<br><br>
 
-<%= f.submit "Go ahead" %>
+<h2>Your Rig</h2>
+<br><br>
+<br><br>
+
+ <%=f.fields_for :rig do |r|%>
+        <%= r.label :name %>
+        <%= r.text_field :name %>
+        <br><br>
+        <%= r.label :make %>
+        <%= r.text_field :make %>
+        <br><br>
+        <%= r.label :model %>
+        <%= r.text_field :model %>
+        <br><br>
+        <%= r.label :year_model %>
+        <%= r.text_field :year_model %>
+        <br><br>
+    <%end%>
+
+<%= f.submit "Go ahead", class: "btn btn-primary" %>
 
 
 

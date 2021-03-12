@@ -15,10 +15,10 @@ Rails.application.routes.draw do
   patch '/users/:id/edit', to: 'users#update'
   
 # rigs
-  resources :rigs
+  resources :rigs, only: [:new, :edit, :update, :destroy]
 
 # location
-  resources :locations
+  resources :locations, only: [:new, :edit, :update, :destroy]
 
 # travels
   resources :travels

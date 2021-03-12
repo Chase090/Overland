@@ -1,13 +1,8 @@
-
-<h2>Your Profile</h2>
-<br><br>
-<br><br>
+<hr class="my-4"> 
+<h5>Your Profile:</h5>
+<br>
 <%= form_with(model: object, url: something, local: true) do |f|%>
-
-  <%= f.label "Profile Photo", class: "form-label" %>
-    <%= f.file_field :avatar, class: "form-control form-control-sm"%>
-    
-<br><br>
+<br>
 
 <%= f.label :first_name %>
 <%= f.text_field :first_name %>
@@ -23,12 +18,11 @@
 
 <%= f.label :password %>
 <%= f.password_field :password %>
-<br><br>
-<br><br>
-
-<h2>Your Rig</h2>
-<br><br>
-<br><br>
+<br>
+<br>
+<hr class="my-4"> 
+<h5>Your Rig:</h5>
+<br>
 
  <%=f.fields_for :rig do |r|%>
         <%= r.label :name %>

@@ -20,9 +20,9 @@ class UsersController < ApplicationController
     end
 
     def show 
-       
          @user = User.find_by_id(session[:user_id])
          @rig = @user.rig
+         @travel = @user.travels.all
    
     end
 
@@ -32,7 +32,8 @@ class UsersController < ApplicationController
 
     def update
         @user.update(user_params)
-        redirect_to profile_path(@user)
+        redirect_to profile_path(@user) 
+        flash[:message] = "Edit done! What's next?"
     end
 
 

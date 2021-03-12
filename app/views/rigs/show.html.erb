@@ -1,9 +1,4 @@
-<h1><%=@rig.model%></h1>
- <%if @rig.rig_avatar.attached?%>
-    
-    <%=image_tag @rig.rig_avatar, height: 100, width: 100, class: "rounded-circle" %>
-  <%end%>
-<h2>your current upgrades:</h2>
+
   
 
   <%= link_to "Edit my rig", edit_rig_path(@rig) %><br>

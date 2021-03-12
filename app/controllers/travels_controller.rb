@@ -29,10 +29,10 @@ class TravelsController < ApplicationController
         @travel.update(travel_params)
         if @travel.valid?
           redirect_to travel_path(@travel)
-          flash[:message]= "Really? You traveled? Good for you!"
+          flash[:message]= "OK updated! So.... whats next?"
         else
           render :edit
-          flash[:message]= "Yeah something went wrong"
+          flash[:message]= "Yeah, something went wrong"
         end
     end
 

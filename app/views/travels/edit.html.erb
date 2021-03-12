@@ -1,4 +1,7 @@
 <%= render partial: 'sessions/errors', locals: { object: @travel }%>
-<%= link_to "Delete?", travel_path(@travel), method: "delete"%>
+
 
 <%= render partial: 'form', locals: { travel: @travel }%>
+
+
+<%= link_to "Delete?", travel_path(@travel), method: "delete", class: "btn btn-xs btn-danger"%>

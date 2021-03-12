@@ -1,8 +1,10 @@
 class TravelsController < ApplicationController
         before_action :logged_in?
-        before_action :set_travel, only: [:destroy, :edit, :update]
+        before_action :set_travel, only: [:destroy, :edit, :update, :show]
+        before_action :authorized, only: [:destroy, :edit, :update]
     
     def new
+        #  binding.pry
         flash[:message] = "So where'd you went?"
         @travel = current_user.travels.new
         @travel.build_location
@@ -10,25 +12,23 @@ class TravelsController < ApplicationController
 
     def create
         @travel = current_user.travels.new(travel_params)
+        # raise.params
         if @travel.save
             redirect_to travel_path(@travel)
         else
-            flash[:message] = "Invalid. Please try again."
+            flash[:message] = "Your invalid. Please try again."
             render :new
         end
     end
 
     def edit
-        if current_user != @travel.user
-            redirect_to user_path(current_user)
-            flash[:message] = "Not yours buddy!"       
-        end
+   
     end
 
     def update 
-        @travel.update(enrollment_params)
+        @travel.update(travel_params)
         if @travel.valid?
-          redirect_to enrollment_path
+          redirect_to travel_path(@travel)
           flash[:message]= "Really? You traveled? Good for you!"
         else
           render :edit
@@ -37,7 +37,7 @@ class TravelsController < ApplicationController
     end
 
     def show 
-        @travel = Travel.find(params[:id])
+    
     end
 
     def index
@@ -58,6 +58,13 @@ class TravelsController < ApplicationController
         end
 
         def set_travel
-            @travel = current_user.travels.find(params[:id])
+            @travel = Travel.find(params[:id])
+        end
+
+        def authorized
+            if current_user != @travel.user
+                redirect_to travel_path(@travel)
+                flash[:message] = "Not yours buddy!"       
+            end
         end
 end

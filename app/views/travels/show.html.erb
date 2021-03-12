@@ -1,11 +1,34 @@
 <%= render partial: 'sessions/errors', locals: { object: @travel }%>
-<p><%= link_to "New Travels", new_travel_path%></p>
-<p> this would show your travels</p>
-<%= @travel.created_at.strftime("Created at: %A, %b %e, at %l:%M %p") %>
-<%= @travel.distance %>
-<%= @travel.description %>
-<%= @travel.location.name%>
-<%= @travel.location.state %>
-<%= @travel.location.longitude %>
-<%= @travel.location.latitude %>
-<%= link_to "edit", edit_travel_path(@travel) %>
+
+
+
+
+
+
+        <hr class="my-4"> 
+            <h5> <%=@travel.location.name%></h5>(<%= link_to "Map", @travel.location.url%>)
+            <p><%= @travel.created_at.strftime("Created at: %A, %b %e, at %l:%M %p") %></p>
+        <hr class="my-4">  
+
+        <div class="container">
+            <div class="row"> 
+
+                <div class="col-9"> 
+                    <p> Coordinates: <%= @travel.location.coordinates%></p>
+                    <p> State: <%= @travel.location.state%></p>
+                    <p> Distance: <%= @travel.distance%></p>
+
+                    <br>
+
+                        <dl class="row">
+                            <dt class="col-sm-3">Description: </dt>
+                            <dd class="col-sm-9"> <%= @travel.description%></dd>
+                        </dl> 
+                        
+                </div>
+                <div class="col-4">
+                    <%= link_to "edit", edit_travel_path(@travel), class: "btn btn-outline-primary" %>
+                </div>
+            </div>
+        
+        </div>

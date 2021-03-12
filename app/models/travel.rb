@@ -2,8 +2,8 @@ class Travel < ApplicationRecord
     belongs_to :user
     belongs_to :location
     accepts_nested_attributes_for :location
-    # has_one :rig, through, :user
-
+    has_one :rig, through: :account
+  
     # def location_attributes=(attr)
     #     self.location = Location.find_or_create_by(name: attr[:name])
     #     self.location.update

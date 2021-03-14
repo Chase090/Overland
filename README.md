@@ -1,24 +1,25 @@
-# README
+# OVERLAND
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## About
+This Rails web app allows users to sign up, login, login with Google, and logout. Users will then be able to keep track of their travels input cooordinates, description and links on the travel, they will also be able to show off the rigs they used.
 
-Things you may want to cover:
+## Installation
+In terminal, in appropriate directory, clone the code.
+```ruby
+git clone git@github.com:chase090/overland.git
+```
 
-* Ruby version
+## Usage
+Run the web application by calling rackup in the terminal and navigate to [localhost:3000](localhost:3000/).
+```ruby
+rails s
+```
 
-* System dependencies
 
-* Configuration
+## Contribution
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change or add.
 
-* Database creation
+## License
+[MIT License](https://choosealicense.com/licenses/mit/)
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+Copyright (c) 2021 Carl Oyam

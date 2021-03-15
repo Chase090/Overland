@@ -4,12 +4,11 @@ class SessionsController < ApplicationController
     end
     
     def create
-        
+             
         @user = User.find_by(email: params[:email])
         if @user && @user.authenticate(params[:password])
             session[:user_id] = @user.id
             redirect_to travels_path(@user.id)
-            # binding.pry
         else
           flash[:message] = "Email and/or password invalid. Please try again."
           redirect_to login_path
@@ -18,13 +17,14 @@ class SessionsController < ApplicationController
 
 
     def omniauth
-        # binding.pry
+  
         user = User.find_or_create_by(uid: auth['uid'], provider: auth[:provider]) do |u|
             u.email = auth['info']['email']
             u.first_name = auth['info']['first_name']
             u.last_name = auth['info']['last_name']
             u.password = SecureRandom.hex
-            end
+        end 
+        
         if user.valid?
             # raise "something wrong with validity".inspect
             session[:user_id] = user.id

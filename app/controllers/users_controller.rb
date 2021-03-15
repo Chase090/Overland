@@ -6,10 +6,12 @@ class UsersController < ApplicationController
     def new
         flash[:message] = "Welcome!!"
         @user = User.new
+        @user.build_rig
     end
 
     def create
         # raise params.inspect
+        binding.pry
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
@@ -20,14 +22,22 @@ class UsersController < ApplicationController
     end
 
     def show 
-         @user = User.find_by_id(session[:user_id])
-         @rig = @user.rig
-         @travel = @user.travels.all
-   
+        @user = User.find_by_id(session[:user_id])
+        
+        if @user.rig
+            @rig = @user.rig   
+        else 
+            @rig = @user.build_rig
+            flash[:message] = "You should update your rig sir!"
+        end
+
+        @travel = @user.travels.all
     end
 
     def edit
-
+       if @user.rig == nil
+        @user.build_rig
+       end
     end
 
     def update

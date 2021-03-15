@@ -4,7 +4,6 @@ class TravelsController < ApplicationController
         before_action :authorized, only: [:destroy, :edit, :update]
     
     def new
-        #  binding.pry
         flash[:message] = "So where'd you went?"
         @travel = current_user.travels.new
         @travel.build_location
@@ -12,7 +11,6 @@ class TravelsController < ApplicationController
 
     def create
         @travel = current_user.travels.new(travel_params)
-        # raise.params
         if @travel.save
             redirect_to travel_path(@travel)
         else

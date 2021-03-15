@@ -1,9 +1,10 @@
 class User < ApplicationRecord
     has_secure_password
-    has_one :rig
+    has_one :rig, dependent: :destroy
     has_many :travels, dependent: :destroy
     has_many :locations, through: :travels
     accepts_nested_attributes_for :rig
+    
 
     validates :first_name, :last_name, :email, presence: true
     validates :email, uniqueness: true

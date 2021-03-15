@@ -43,9 +43,5 @@ class LocationsController < ApplicationController
         params.require(:location).permit(:name, :longitude, :latitude, :state, :url )
     end
 
-    # def set_location
-    #     @location = Location.find_by_id(id: params[:id])
-    # end
-
 
 end

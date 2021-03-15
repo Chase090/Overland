@@ -10,8 +10,6 @@ class UsersController < ApplicationController
     end
 
     def create
-        # raise params.inspect
-        binding.pry
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
@@ -22,28 +20,36 @@ class UsersController < ApplicationController
     end
 
     def show 
-        @user = User.find_by_id(session[:user_id])
-        
-        if @user.rig
-            @rig = @user.rig   
-        else 
-            @rig = @user.build_rig
-            flash[:message] = "You should update your rig sir!"
-        end
-
-        @travel = @user.travels.all
+         @user = User.find_by_id(session[:user_id])
+       
+         if @user.rig == nil
+            flash[:message] = "Input your rig please. Else input n/a"
+            redirect_to user_edit_path(@user.id)
+        else
+            @rig = @user.rig
+        end 
+     
+         @travel = @user.travels.all
+   
     end
 
     def edit
-       if @user.rig == nil
-        @user.build_rig
-       end
+        if @user.rig == nil
+            @user.create_rig
+        end
     end
 
     def update
+  
         @user.update(user_params)
-        redirect_to profile_path(@user) 
-        flash[:message] = "Edit done! What's next?"
+        if @user.valid?
+            redirect_to profile_path(@user)
+            flash[:message] = "Edit done! What's next?" 
+        else 
+            render :edit
+            flash[:message] = "Something's wrong" 
+            
+        end
     end
 
 

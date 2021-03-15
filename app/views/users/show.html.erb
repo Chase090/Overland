@@ -8,18 +8,18 @@
 
                 <h5><strong><%= @user.full_name%></strong> </h5>
                     <p>Your Travel Count: "<%= @user.travel_count%>"
-                    <br>Rig Name: "<%= @user.rig.name%>"</p>
+                    <br>Rig Name: "<%= @rig.name%>"</p>
                 <ul>
-                    <li>Year: <%= @user.rig.year_model%> </li>
-                    <li>Make <%= @user.rig.make%> </li>
-                    <li>Model <%= @user.rig.model%> </li>
+                    <li>Year: <%= @rig.year_model%> </li>
+                    <li>Make <%= @rig.make%> </li>
+                    <li>Model <%= @rig.model%> </li>
                 </ul> 
 
             <hr class="my-4">
 
                 <div class="btn-group" role="group" aria-label="Basic example">
                         <%= link_to "New Travels", new_travel_path, class:"btn btn-primary"%>
-                        <%= link_to "My Travels", travels_path, class:"btn btn-primary"%>
+                        <%= link_to "See Travels", travels_path, class:"btn btn-primary"%>
                 </div>
             </div>
         </div>

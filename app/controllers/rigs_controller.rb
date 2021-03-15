@@ -27,7 +27,7 @@ class RigsController < ApplicationController
     def  update
        
         if @rig.update(rig_params)
-          redirect_to rig_path(@rig)
+          redirect_to user_edit_path(current_user.id)
         else
           render :edit
         end
@@ -35,7 +35,7 @@ class RigsController < ApplicationController
 
     def  destroy
         @rig.destroy
-        redirect_to rig_path
+        redirect_to profile_path(current_user.id)
     end
 
 

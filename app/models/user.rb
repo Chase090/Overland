@@ -17,5 +17,6 @@ class User < ApplicationRecord
     def travel_count
         self.travels.count
     end
-    
+
+   
 end

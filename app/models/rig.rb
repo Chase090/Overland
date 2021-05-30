@@ -6,16 +6,12 @@ class Rig < ApplicationRecord
     validates_associated :user
 
     
-    validates :year_model, :name, :make, :model, presence: true
-    validates :year_model, numericality: { greater_than: 1950 }
+    validates :name, :make, :model, presence: true
+    validates :year_model, numericality: { greater_than: 1950}, allow_blank: true
     
     def ym
         self.year_model.to_s + " " + self.model
     end
-
-    # def self.current
-    #     where(:active => true)
-    # end
 
     
 end

@@ -7,8 +7,12 @@
             <hr class="my-4">    
 
                 <h5><strong><%= @user.full_name%></strong> </h5>
-                   "<%= image_tag @user.avatar%>"
-                   "<%= image_tag @rig.avatar%>"
+                <% if @user.avatar.attached? %>
+                    <%= image_tag @user.avatar, size: 200, class: "rounded-circle" %>
+                <% end %>
+                <% if @rig.avatar.attached? %>
+                    <%= image_tag @rig.avatar, size: 100, class: "rounded-circle" %>
+                <% end %>
                     <p>Your Travel Count: "<%= @user.travel_count%>"
                     <br>Rig Name: "<%= @rig.name%>"</p>
                 <ul>

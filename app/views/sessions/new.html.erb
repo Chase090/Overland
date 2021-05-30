@@ -1,18 +1,31 @@
-<h1>Log in/Sign up</h1>
+<br><br>
 
-<%= render partial: 'errors', locals: { object: @user }%>
+<div class="mx-auto" style="width: 300px;">
+    <h1>Log in/Sign up</h1>
 
-<%= form_with(url: '/', local: true) do |f| %>
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-    <br><br>
-    <%= f.label :password %>
-    <%= f.password_field :password %>
-    <br><br>
-    <%= f.submit "Sign In" %>
-<% end %>
+    <%= render partial: 'errors', locals: { object: @user }%>
+
+    <%= form_with(url: '/', local: true) do |f| %>
+
+    <div class="form-floating mb-3">
+        <%= f.text_field :email, class: "form-control", id:"floatingInput", placeholder: "name@example.com" %>
+        <label for="floatingInput">Email address</label>
+    </div>
+
+    <div class="form-floating">
+        <%= f.password_field :password, class:"form-control", id:"floatingPassword", placeholder: "Password" %>
+        <label for="floatingPassword">Password</label>
+    </div>
+
+        
+        <br><br>
+        <%= f.submit "Sign In", class:"btn btn-primary" %> or <%= link_to "Sign Up", signup_path(@user) %>
+        <% end %>
+
+        <br>
+
+        <%= button_to "Sign In with Google", '/auth/google_oauth2', class:"btn btn-primary"%>
+</div>
 
 
 
-<p><%= link_to "Sign Up", signup_path(@user) %></p>
-<%= button_to "Sign In with Google", '/auth/google_oauth2' %>

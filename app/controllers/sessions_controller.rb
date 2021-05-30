@@ -17,7 +17,7 @@ class SessionsController < ApplicationController
 
 
     def omniauth
-  
+        binding.pry
         user = User.find_or_create_by(uid: auth['uid'], provider: auth[:provider]) do |u|
             u.email = auth['info']['email']
             u.first_name = auth['info']['first_name']

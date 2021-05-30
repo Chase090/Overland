@@ -8,6 +8,10 @@
 <%= f.text_field :first_name %>
 <br><br>
 
+<%= f.label :avatar %>
+<%= f.file_field :avatar %>
+<br><br>
+
 <%= f.label :last_name %>
 <%= f.text_field :last_name %>
 <br><br>
@@ -28,12 +32,19 @@
         <%= r.label :name %>
         <%= r.text_field :name %>
         <br><br>
+
+        <%= r.label :avatar %>
+        <%= r.file_field :avatar %>
+        <br><br>
+
         <%= r.label :make %>
         <%= r.text_field :make %>
         <br><br>
+
         <%= r.label :model %>
         <%= r.text_field :model %>
         <br><br>
+
         <%= r.label :year_model %>
         <%= r.text_field :year_model %>
         <br><br>

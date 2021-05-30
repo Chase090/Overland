@@ -52,8 +52,7 @@ class TravelsController < ApplicationController
     private
 
         def travel_params
-            params.require(:travel).permit(:distance, :description, :user_id, :location_id, location_attributes: [:name, :longitude, :latitude, :state, :url])
-        end
+            params.require(:travel).permit(:distance, :description, :user_id, :location_id, location_attributes: [:name, :longitude, :latitude, :state, :url]
 
         def set_travel
             @travel = Travel.find(params[:id])

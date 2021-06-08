@@ -1,0 +1,39 @@
+ <% something.all.each do |travel| %>
+        <hr class="my-4"> 
+
+    
+            <h5> <%= link_to travel.location.name, travel_path(travel.id)%></h5> 
+
+        <hr class="my-4">  
+
+        <div class="container">
+         <div class="row"> 
+
+            <div class="col-9"> 
+                <p>User: <%=travel.user.full_name%> <br>
+                Total travels so far: "<%=travel.user.travel_count%>"</p>
+                <p>Rig: <%=travel.user.rig.name%>(<%=travel.user.rig.ym%>) </p>
+           
+                
+            </div>
+            <hr class="my-4">  
+                <div class="col-4">
+                    <ul>
+                    <li> Coordinates: <%= travel.location.coordinates%>(<%= link_to "Map", travel.location.url%>)</li>
+                    <li> State: <%= travel.location.state%></li>
+                    <li> Distance: <%= travel.distance%> mi</li>
+                    </ul>
+                </div>
+                <div class="col-6"> 
+                    <dl class="row">
+                        <dt class="col-sm-3">Description: </dt>
+                        <dd class="col-sm-9"><%= travel.description%></dd>
+                    </dl> 
+                </div>
+         
+         </div>
+        
+        </div>
+       
+<% end %>
+       

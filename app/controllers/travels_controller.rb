@@ -40,7 +40,8 @@ class TravelsController < ApplicationController
     end
 
     def index
-        @travels = Travel.all
+        @short = Travel.short_travel.all
+        @long = Travel.long_travel.all
     end
 
     def destroy  

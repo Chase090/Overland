@@ -28,9 +28,9 @@ class UsersController < ApplicationController
         else
             @rig = @user.rig
         end 
+    
      
          @travel = @user.travels.all
-   
     end
 
     def edit
@@ -43,7 +43,7 @@ class UsersController < ApplicationController
   
         @user.update(user_params)
         if @user.valid?
-            redirect_to profile_path(@user)
+            redirect_to user_path(@user)
             flash[:message] = "Edit done! What's next?" 
         else 
             render :edit

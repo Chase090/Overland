@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   
 # users
   resources :users do 
-    resources :travels, only: [:new]
+    resources :travels, only: [:new, :index]
+    resource :rig, only: [:show]
   end
   # get '/signup', to: 'users#new'
   # post '/signup', to: 'users#create'
@@ -18,15 +19,13 @@ Rails.application.routes.draw do
   # patch '/users/:id/edit', to: 'users#update'
   
 # rigs
-  # resources :rigs, only: [:new, :edit, :update, :destroy]
+   resources :rigs, only: [:new, :edit, :update, :destroy]
 
 # location
-  resources :locations, only: [:new, :edit, :update, :destroy] do
-    resources :travels, only: [:show, :index                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                     ]
-  end
+  resources :locations, only: [:new, :edit, :update, :destroy]                                                                                                                                     
 
 # travels
- resources :travels, except: [:new]
+ resources :travels, except: [:new, :index]
 
 
 end

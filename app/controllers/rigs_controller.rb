@@ -1,9 +1,9 @@
 class RigsController < ApplicationController
-    before_action :set_rig, only: [:show, :edit, :update, :destroy]
+    before_action :set_rig, only: [:edit, :update, :destroy]
     
     
     def  show 
-      
+      @rig = current_user.rig
     end
     
 

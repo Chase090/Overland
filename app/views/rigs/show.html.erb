@@ -1,0 +1,8 @@
+<% if @rig.avatar.attached? %>
+                    <%= image_tag @rig.avatar, size: 100, class: "rounded-circle" %>
+                <% end %>
+                <ul>
+                    <li>Year: <%= @rig.year_model%> </li>
+                    <li>Make <%= @rig.make%> </li>
+                    <li>Model <%= @rig.model%> </li>
+                </ul> 

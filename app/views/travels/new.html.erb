@@ -1,4 +1,6 @@
 <%= render partial: 'sessions/errors', locals: { object: @travel }%>
-<%= render partial: 'form', locals: { travel: @travel }%>
+<%= render partial: 'form' %>
+
+<%= link_to "New Travels", new_user_travel_path(current_user), class: "btn btn-outline-primary"%>
 
 

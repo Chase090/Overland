@@ -17,7 +17,6 @@ class SessionsController < ApplicationController
 
 
     def omniauth
-        binding.pry
         user = User.find_or_create_by(uid: auth['uid'], provider: auth[:provider]) do |u|
             u.email = auth['info']['email']
             u.first_name = auth['info']['first_name']
@@ -28,7 +27,7 @@ class SessionsController < ApplicationController
         if user.valid?
             # raise "something wrong with validity".inspect
             session[:user_id] = user.id
-            redirect_to profile_path(user)
+            redirect_to user_path(user)
         else
             # raise "something wrong with creating the session".inspect
             flash[:message] = user.errors.full_messages.join("")

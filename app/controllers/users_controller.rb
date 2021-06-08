@@ -13,7 +13,7 @@ class UsersController < ApplicationController
         @user = User.new(user_params)
         if @user.save
           session[:user_id] = @user.id
-          redirect_to profile_path(@user.id)
+          redirect_to user_path(@user.id)
         else
           render :new
         end
@@ -24,7 +24,7 @@ class UsersController < ApplicationController
        
          if @user.rig == nil
             flash[:message] = "Input your rig please. Else input n/a"
-            redirect_to user_edit_path(@user.id)
+            redirect_to edit_user_path(@user.id)
         else
             @rig = @user.rig
         end 

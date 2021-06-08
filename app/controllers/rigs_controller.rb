@@ -7,7 +7,7 @@ class RigsController < ApplicationController
     end
     
 
-    def  new 
+    def new 
         @rig = Rig.new
     end
 
@@ -39,20 +39,13 @@ class RigsController < ApplicationController
     end
 
 
-private
+    private
 
-    def rig_params
-        params.require(:rig).permit(:name, :make, :model, :year_model, :active, :avatar)
+        def rig_params
+            params.require(:rig).permit(:name, :make, :model, :year_model, :active, :avatar)
+        end
+
+        def set_rig
+            @rig = Rig.find_by(id: params[:id])
+        end
     end
-
-    def set_rig
-        @rig = Rig.find_by(id: params[:id])
-    end
-
-
-
-
-
-
-
-end

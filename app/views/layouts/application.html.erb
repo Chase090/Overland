@@ -43,15 +43,15 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
             <%if logged_in?%>
-            <li><%= link_to "Account Settings", user_edit_path(current_user.id), class: "dropdown-item" %></li>
-            <li><%= link_to "Profile", profile_path(current_user), class: "dropdown-item" %></li>
-            <li><%= link_to "New Travels", new_travel_path, class: "dropdown-item"%></li>
+            <li><%= link_to "Account Settings", edit_user_path(current_user.id), class: "dropdown-item" %></li>
+            <li><%= link_to "Profile", user_path(current_user), class: "dropdown-item" %></li>
+            <li><%= link_to "New Travels", new_user_travel_path(current_user), class: "dropdown-item"%></li>
             <li><hr class="dropdown-divider"></li>
            
             <li>  
                   <%= link_to "Log out", logout_path, method: "delete", class: "dropdown-item"%>
                   <%else%>
-                  <%= link_to "Signup", signup_path, class: "dropdown-item" %>
+                  <%= link_to "Signup", new_user_path, class: "dropdown-item" %>
                   <%end%></li>
           </ul>
         </li>      

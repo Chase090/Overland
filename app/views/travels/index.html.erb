@@ -1,6 +1,6 @@
 
 <h4><%=current_user.full_name%></h4>
-<%= link_to "New Travels", new_travel_path, class: "btn btn-outline-primary"%>
+<%= link_to "New Travels", new_user_travel_path(current_user), class: "btn btn-outline-primary"%>
 
  <% @travels.all.each do |travel| %>
         <hr class="my-4"> 

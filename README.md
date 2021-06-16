@@ -10,7 +10,7 @@ git clone git@github.com:chase090/overland.git
 ```
 
 ## Usage
-Run the web application by calling rackup in the terminal and navigate to [localhost:3000](localhost:3000/).
+Run the web application by calling rackup in the terminal and navigate to [localhost:3000](localhost:3000/)
 ```ruby
 rails s
 ```

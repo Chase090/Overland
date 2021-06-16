@@ -8,6 +8,7 @@ class TravelsController < ApplicationController
         @user = User.find_by(id: params[:user_id])
         @travel = current_user.travels.new
         @travel.build_location
+        # binding.pry
     end
 
     def create

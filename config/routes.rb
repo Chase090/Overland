@@ -9,7 +9,7 @@ Rails.application.routes.draw do
   
 # users
   resources :users do 
-    resources :travels, only: [:new, :index]
+    resources :travels, only: [:new, :create ,:index]
     resource :rig, only: [:show]
   end
   # get '/signup', to: 'users#new'

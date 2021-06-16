@@ -6,6 +6,6 @@ class Travel < ApplicationRecord
     has_one :rig, through: :user
     validates :distance, presence: true
 
-   scope :long_travel, -> {where('distance < 25')}
+   scope :long_travel, -> {where('distance > 25')}
    scope :short_travel, -> {where('distance < 25')}
 end

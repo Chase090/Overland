@@ -26,7 +26,7 @@
 
                 <div class="btn-group" role="group" aria-label="Basic example">
                         <%= link_to "New Travels", new_user_travel_path(current_user), class:"btn btn-primary"%>
-                        <%= link_to "See Travels", travels_path, class:"btn btn-primary"%>
+                        <%= link_to "See Travels", user_travels_path(current_user ), class:"btn btn-primary"%>
                 </div>
             </div>
         </div>

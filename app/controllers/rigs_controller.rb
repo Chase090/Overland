@@ -3,8 +3,8 @@ class RigsController < ApplicationController
     before_action :set_rig, only: [:edit, :update, :destroy, :show]
     
     
-    def  show    
-    #   binding.pry
+    def show    
+      
     end
     
 

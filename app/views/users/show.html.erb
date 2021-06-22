@@ -15,7 +15,7 @@
                 <% end %>
                     <p>Your Travel Count: "<%= @user.travel_count%>"
                     <br>Rig Name: "<%= @rig.name%>"</p>
-                    <%= link_to "Rig Profile", rig_path(current_user), class:"btn btn-primary"%>
+                    <%= link_to "Rig Profile", rig_path(@user.rig), class:"btn btn-primary"%>
                 <ul>
                     <li>Year: <%= @rig.year_model%> </li>
                     <li>Make <%= @rig.make%> </li>

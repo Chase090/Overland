@@ -1,6 +1,5 @@
 class Rig < ApplicationRecord
     belongs_to :user
-    has_many :travels, through: :users
     has_one_attached :avatar
     
     validates_associated :user

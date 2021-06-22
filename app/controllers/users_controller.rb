@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :set_user, only: [:edit, :update, :show]
+    before_action :set_user, :logged_in_user, only: [:edit, :update, :show]
     
 
 
@@ -35,7 +35,7 @@ class UsersController < ApplicationController
 
     def edit
         if @user.rig == nil
-            @user.create_rig
+           @user.create_rig
         end
     end
 
@@ -59,6 +59,12 @@ class UsersController < ApplicationController
     end
 
     def set_user
-        @user = User.find_by_id(session[:user_id])
+        @user = User.find_by(id: params[:id])
+        if current_user == @user
+            @user
+        else
+            flash[:message] = "Yeah, stop that...." 
+            redirect_to user_path(current_user)
+        end
     end
 end

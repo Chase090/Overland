@@ -39,10 +39,6 @@ class SessionsController < ApplicationController
             session.clear
             redirect_to login_path
         end
-    
-
-    
-
 
     private
         def auth

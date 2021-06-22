@@ -12,7 +12,7 @@
             <div class="col-9"> 
                 <p>User: <%=travel.user.full_name%> <br>
                 Total travels so far: "<%=travel.user.travel_count%>"</p>
-                <p>Rig: <%=travel.user.rig.name%>(<%=travel.user.rig.ym%>) </p>
+                <p>Rig: (<%=travel.user.rig.ym%>)" <%=link_to travel.user.rig.name, rig_path(travel.user.rig)%> "</p>
            
                 
             </div>

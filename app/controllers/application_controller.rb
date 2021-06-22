@@ -12,6 +12,7 @@ class ApplicationController < ActionController::Base
 
     def logged_in_user
         unless logged_in?
+            flash[:message] = "You have to log in...."
             redirect_to login_path
         end
     end

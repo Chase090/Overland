@@ -1,13 +1,15 @@
 class RigsController < ApplicationController
-    before_action :set_rig, only: [:edit, :update, :destroy]
+    before_action :logged_in_user
+    before_action :set_rig, only: [:edit, :update, :destroy, :show]
     
     
-    def  show 
-      @rig = current_user.rig
+    def  show    
+    #   binding.pry
     end
     
 
     def new 
+        
         @rig = Rig.new
     end
 
@@ -46,6 +48,13 @@ class RigsController < ApplicationController
         end
 
         def set_rig
-            @rig = Rig.find_by(id: params[:id])
+            
+            if rig = Rig.exists?(id: params[:id])
+                @rig = Rig.find_by(id: params[:id])
+            else 
+                flash[:message] = "Nope doesn't exists, and stop that."
+                redirect_to user_path(current_user)
+            end
         end
+    
     end

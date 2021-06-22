@@ -10,22 +10,18 @@ Rails.application.routes.draw do
 # users
   resources :users do 
     resources :travels, only: [:new, :create ,:index]
-    resource :rig, only: [:show]
   end
-  # get '/signup', to: 'users#new'
-  # post '/signup', to: 'users#create'
-  # get 'users/:id/show', to: 'users#show', as: "profile"
-  # get '/users/:id/edit', to: 'users#edit', as: "user_edit"
-  # patch '/users/:id/edit', to: 'users#update'
   
 # rigs
-   resources :rigs, only: [:new, :edit, :update, :destroy]
+  resources :rigs, only: [:new, :edit, :update, :destroy, :show]
 
 # location
-  resources :locations, only: [:new, :edit, :update, :destroy]                                                                                                                                     
+  resources :locations, only: [:new, :edit, :update, :destroy] do 
+    resources :location, only: [:show]
+  end                                                                                                                                    
 
 # travels
- resources :travels, except: [:new, :index]
+  resources :travels, except: [:new, :index] 
 
 
 end

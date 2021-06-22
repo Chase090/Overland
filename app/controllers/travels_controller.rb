@@ -1,19 +1,20 @@
 class TravelsController < ApplicationController
-        before_action :logged_in?
+        before_action :logged_in?, :logged_in_user
         before_action :set_travel, only: [:destroy, :edit, :update, :show]
         before_action :authorized, only: [:destroy, :edit, :update]
     
     def new
         flash[:message] = "So where'd you went?"
         @user = User.find_by(id: params[:user_id])
-        @travel = current_user.travels.new
+        @travel = @user.travels.new
         @travel.build_location
-        # binding.pry
     end
-
+    
     def create
+       
         @travel = current_user.travels.new(travel_params)
         if @travel.save
+            flash[:message] = "NICE!"
             redirect_to travel_path(@travel)
         else
             flash[:message] = "Your invalid. Please try again."
@@ -37,20 +38,28 @@ class TravelsController < ApplicationController
     end
 
     def show 
-    
+    #  binding.pry
     end
 
     def index
-        @short = Travel.short_travel.all
-        @long = Travel.long_travel.all
+        # binding.pry
+        @user = User.find_by(id: params[:user_id])
+        if current_user == @user
+            @short = Travel.short_travel.all
+            @long = Travel.long_travel.all   
+        else
+            flash[:message]= "Yeah, Don't do that...."
+            redirect_to user_travels_path(current_user)
+        end       
     end
 
     def destroy  
         @travel.destroy
         flash[:message]= "Aww"
-        redirect_to travels_path
+        redirect_to user_travels_path(current_user)
         
-      end
+    end
+      
 
     private
 

@@ -1,8 +1,8 @@
 
-<h4><%=current_user.full_name%></h4>
+<h4><%=@user.full_name%></h4>
 
 
-<%= link_to "New Travels", new_user_travel_path(current_user), class: "btn btn-outline-primary"%>
+<%= link_to "New Travels", new_user_travel_path(@user), class: "btn btn-outline-primary"%>
     <h1>Long Travels</h1>
  
  

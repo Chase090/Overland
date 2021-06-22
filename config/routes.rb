@@ -17,7 +17,6 @@ Rails.application.routes.draw do
 
 # location
   resources :locations, only: [:new, :edit, :update, :destroy] do 
-    resources :location, only: [:show]
   end                                                                                                                                    
 
 # travels
